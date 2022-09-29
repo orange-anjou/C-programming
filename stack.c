@@ -48,10 +48,10 @@ bool isFull(stackInt stack) {
     return false;
 }
 
-stackInt push(stackInt stack, int element) {
+void* push(stackInt *stack, int element) {
     if (true) {
-        stack.array[stack.topId] = element;
-        stack.topId += 1;
+        stack->array[stack->topId] = element;
+        stack->topId += 1;
     } else {
         printf("Error : stack is already full");
     }
@@ -60,10 +60,11 @@ stackInt push(stackInt stack, int element) {
 
 int main() {
     stackInt stack = newEmptyStack();
-    push(stack, 1);
-    push(stack, 2);
-    push(stack, 3);
-    push(stack, 4);
+    push(&stack, 1);
+    push(&stack, 2);
+    push(&stack, 3);
+    push(&stack, 4);
+    push(&stack, 5);
     display(stack);
 
     return 0;
