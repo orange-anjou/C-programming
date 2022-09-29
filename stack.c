@@ -12,8 +12,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+// The maximum number of element that can be placed in a stack
 #define STACK_LENGTH 5
 
+/**
+ *   
+ */
 typedef struct StackInt {
     int array[STACK_LENGTH];
     int topId;
@@ -38,22 +42,19 @@ bool isEmpty(stackInt stack) {
     return false;
 }
 
-bool isFull(stackInt stack) {
-    printf("%d\n", stack.topId);
-    printf("%d\n", STACK_LENGTH);
-    printf("%d\n", stack.topId == STACK_LENGTH);
-    if (stack.topId == STACK_LENGTH) {
+bool isFull(stackInt *stack) {
+    if (stack->topId == STACK_LENGTH) {
         return true;
     }
     return false;
 }
 
 void* push(stackInt *stack, int element) {
-    if (true) {
+    if (!isFull(stack)) {
         stack->array[stack->topId] = element;
         stack->topId += 1;
     } else {
-        printf("Error : stack is already full");
+        printf("Error : stack is already full\n");
     }
     return stack;
 }
